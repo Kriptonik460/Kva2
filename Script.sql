@@ -97,6 +97,7 @@ CREATE TABLE [dbo].[Service](
 	[Title] [nvarchar](50) NULL,
 	[MasterID] [int] NULL,
 	[ReviewID] [int] NULL,
+	[Date] [date] NULL,
  CONSTRAINT [PK_Service] PRIMARY KEY CLUSTERED 
 (
 	[ID] ASC
