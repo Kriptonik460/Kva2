@@ -1,0 +1,59 @@
+﻿<Window x:Class="Shaitanet.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Shaitanet.View"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        mc:Ignorable="d"
+        DataContext="{Binding RelativeSource={RelativeSource Self}}"
+        Title="Главная страница модератора" Height="800" Width="800">
+    <Grid>
+        <StackPanel HorizontalAlignment="Right" 
+                    VerticalAlignment="Top"
+                    Orientation="Horizontal">
+            <Button x:Name="Svernut" Content="Свернуть" Background="White"/>
+            <Button x:Name="Close" Content="Закрыть" Background="White"/>
+        </StackPanel>
+
+        <StackPanel HorizontalAlignment="Left" 
+            VerticalAlignment="Top" Margin="25 100 0 0">
+            <Button x:Name="Corm" Content="Свернуть"
+                    Margin="0 0 0 40"
+                    Background="White"/>
+            <Button x:Name="Exit" Content="Закрыть" Background="White"/>
+        </StackPanel>
+        
+        <StackPanel HorizontalAlignment="Right" 
+    VerticalAlignment="Top" Margin="0 100 20 0"
+                    Orientation="Horizontal">
+            <Button x:Name="left" Content="&lt;-"
+                    Margin="0 0 10 0"
+            Background="White"/>
+            <Button x:Name="right" Content="->" Background="White"/>
+        </StackPanel>
+
+        <ListView ItemsSource="{Binding ProductList}" Margin="100">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Grid.Column="0">
+                            <TextBlock Text="{Binding Title, StringFormat=Название: {0}}"/>
+                            <TextBlock Text="{Binding Master.User.Username, StringFormat=Ваш мастер: {0}}"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Vertical" HorizontalAlignment="Right" Grid.Column="1">
+                            <TextBlock Text="{Binding Review.Text, StringFormat=Отзыв: {0}}"/>
+                            <TextBlock Text="{Binding Date, StringFormat=Дата изменение товара: {0}}"/>
+                        </StackPanel>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+
+</Window>
